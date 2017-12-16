@@ -1,0 +1,17 @@
+{
+  "name": "mysql-singleton",
+  "version": "1.0.0",
+  "description": "Singleton MySQL connection",
+  "main": "index.js",
+  "scripts": {
+    "test": "no test"
+  },
+  "keywords": [
+    "mysql"
+  ],
+  "author": "Sai Umesh <saiumesh.d@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
+}
