@@ -2,13 +2,16 @@
 Connecting MYSQL database in nodejs.
 
 this package will create a MySQL pool connection, example as follows 
+
 const mysql_singleton = require('mysql-singleton');
+
 const config = {
   host: 'localhost',
   user: 'root',
   password: '',
   database: 'ideas'
 }
+
 mysql_singleton.config(config)
 
 // for new async await approach
