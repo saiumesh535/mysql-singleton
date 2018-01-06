@@ -2,6 +2,7 @@
 const _mysql = require('mysql');
 const _connection;
 const _config;
+const _middlewareFn;
 
 module.exports = function (config) {
 

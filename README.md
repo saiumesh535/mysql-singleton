@@ -1,7 +1,8 @@
 Connecting MySQL database.
 
 example
-```ruby
+
+```js
 npm install mysql-singleton --save
 const mysql_singleton = require('mysql-singleton');
 const config = {
@@ -10,23 +11,20 @@ const config = {
   password: '',
   database: 'database'
 }
-// adding config
-mysql_singleton.config(config)
 
-// getting connection using good old callback 
- mysql_singleton.getConnection(function(err,connection){
-        // handle err or connection 
+app.use(mysql_singleton(config));
+
+app.get('/users', function(req, res, next) {
+    req.getConnection(function(err, connection) {
+        if(!err) {
+            // writing queries 
+              connection.query("select * from table",(err,result)=>{
+              // handle result or err             
+          })
+        }else {
+            throw err;
+        }
+    });
 });
-
-// using async await 
-const connection = await mysql_singleton.getConnectionPromise();
-
-// writing queries 
- connection.query("select * from table",(err,result)=>{
-    // handle result or err             
-})
-
-// don't for get to realase the connection after it's use
-connection.release(); 
 
 ```
