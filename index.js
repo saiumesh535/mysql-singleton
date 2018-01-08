@@ -1,8 +1,8 @@
 'use strict'
 const _mysql = require('mysql');
-const _connection;
-const _config;
-const _middlewareFn;
+let _connection='',
+    _config='',
+    _middlewareFn='';
 
 module.exports = function (config) {
 
@@ -10,7 +10,6 @@ module.exports = function (config) {
 
     //config reference
     _config = config;
-
     _connection = _mysql.createConnection(config);
     handleDisconnect(config);
     _middlewareFn = function(req, res, next) {
